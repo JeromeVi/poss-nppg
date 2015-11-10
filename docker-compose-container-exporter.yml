@@ -1,8 +1,25 @@
-container-exporter:
-  hostname: container-exporter
-  container_name: container-exporter
+container-exporter1:
+  hostname: container-exporter1
+  container_name: container-exporter1
+  net: ${NETWORK}
   image: prom/container-exporter
   command: -labels=infra,network,service
+  environment:
+   - constraint:node==${NODE_1}
+  ports:
+    - "9104:9104"
+  volumes:
+    - "/sys/fs/cgroup:/cgroup"
+    - "/var/run/docker.sock:/var/run/docker.sock"
+
+container-exporter2:
+  hostname: container-exporter2
+  container_name: container-exporter2
+  net: ${NETWORK}
+  image: prom/container-exporter
+  command: -labels=infra,network,service
+  environment:
+   - constraint:node==${NODE_2}
   ports:
     - "9104:9104"
   volumes:
