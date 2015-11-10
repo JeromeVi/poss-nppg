@@ -11,9 +11,9 @@ docker-node1:
   environment:
    - constraint:node==${NODE_1}
   labels:
-   - type: infra
-   - network: ${NETWORK}
-   - service: node-exporter   
+   type: infra
+   network: ${NETWORK}
+   service: node-exporter   
 
 docker-node2:
   hostname: docker-node2
@@ -25,9 +25,9 @@ docker-node2:
   environment:
    - constraint:node==${NODE_2}
   labels:
-   - type: infra
-   - network: ${NETWORK}
-   - service: node-exporter
+   type: infra
+   network: ${NETWORK}
+   service: node-exporter
 
 prometheus:
   hostname: prometheus
@@ -44,9 +44,9 @@ prometheus:
   environment:
    - constraint:node==${NODE_1}
   labels:
-   - type: infra
-   - network: ${NETWORK}
-   - service: prometheus
+   type: infra
+   network: ${NETWORK}
+   service: prometheus
 
 promdash:
   hostname: promdash
@@ -61,9 +61,9 @@ promdash:
     - /tmp/prom:/tmp/prom
   net: ${NETWORK}
   labels:
-   - type: infra
-   - network: ${NETWORK}
-   - service: dashboard
+   type: infra
+   network: ${NETWORK}
+   service: dashboard
    
 grafana:
   hostname: grafana
@@ -73,9 +73,9 @@ grafana:
     - "/var/grafana:/var/lib/grafana"
   ports:
     - "3000:3000"
-  net: ${NETWORK}
+  net: ${NETWORK}  
   labels:
-   - type: infra
-   - network: ${NETWORK}
-   - service: dashboard
+   type: infra
+   network: ${NETWORK}
+   service: dashboard
    
