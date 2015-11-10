@@ -2,7 +2,7 @@ container-exporter:
   hostname: container-exporter
   container_name: container-exporter
   image: prom/container-exporter
-  command: -labels=infra,network,service,image
+  command: -labels=infra,network,service
   ports:
     - "9104:9104"
   volumes:
