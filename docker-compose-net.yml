@@ -1,0 +1,56 @@
+# Need to do the following steps:
+#  1. create /var/prometheus first.
+#  2. run: docker-compose run promdash ./bin/rake db:migrate
+docker-node1:
+  hostname: docker-node1
+  container_name: docker-node1
+  net: skynet
+  image: prom/node-exporter
+  ports:
+    - "9100:9100"
+  environment:
+   - constraint:node==${NODE_1}
+
+docker-node2:
+  hostname: docker-node2
+  container_name: docker-node2
+  net: skynet
+  image: prom/node-exporter
+  ports:
+    - "9100:9100"
+  environment:
+   - constraint:node==${NODE_2}
+
+prometheus:
+  hostname: prometheus
+  container_name: prometheus
+  image: prom/prometheus
+  ports:
+    - "9090:9090"
+  volumes:
+    - "/var/prometheus:/prometheus"
+    - "${PWD}/conf:/etc/custom"
+  net: skynet
+  entrypoint: /bin/prometheus
+  command: "-config.file=/etc/custom/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles"
+
+promdash:
+  hostname: promdash
+  container_name: promdash
+  image: prom/promdash
+  ports:
+    - "4000:3000"
+  environment:
+    - DATABASE_URL=sqlite3:/var/prometheus/file.sqlite3
+  volumes:
+    - "/var/prometheus:/var/prometheus"
+    - /tmp/prom:/tmp/prom
+  net: skynet
+
+grafana:
+  hostname: grafana
+  container_name: grafana
+  image: grafana/grafana
+  ports:
+    - "3000:3000"
+  net: skynet
