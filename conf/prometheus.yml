@@ -29,4 +29,4 @@ scrape_configs:
   - job_name: 'container-exporter'
     scrape_interval: 5s
     target_groups:
-      - targets: ['docker-node1:9104','docker-node2:9104']
+      - targets: ['container-exporter1:9104','container-exporter2:9104']
