@@ -74,7 +74,7 @@ grafana:
   ports:
     - "3000:3000"
   net: ${NETWORK}
-    labels:
+  labels:
    - type: infra
    - network: ${NETWORK}
    - service: dashboard
