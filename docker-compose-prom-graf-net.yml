@@ -1,0 +1,61 @@
+docker-node1:
+  hostname: docker-node1
+  container_name: docker-node1
+  net: ${NETWORK}
+  image: prom/node-exporter
+  ports:
+   - "9100:9100"
+  environment:
+   - constraint:node==${NODE_1}
+  labels:
+   type: infra
+   network: ${NETWORK}
+   service: node-exporter   
+
+docker-node2:
+  hostname: docker-node2
+  container_name: docker-node2
+  net: ${NETWORK}
+  image: prom/node-exporter
+  ports:
+   - "9100:9100"
+  environment:
+   - constraint:node==${NODE_2}
+  labels:
+   type: infra
+   network: ${NETWORK}
+   service: node-exporter
+
+prometheus:
+  hostname: prometheus
+  container_name: prometheus
+  image: prom/prometheus
+  ports:
+    - "9090:9090"
+  volumes:
+    - "/var/prometheus:/prometheus"
+    - "${PROMETHEUS_CONF}:/etc/custom"
+  net: ${NETWORK}
+  entrypoint: /bin/prometheus
+  command: "-config.file=/etc/custom/prometheus.yml -storage.local.path=/prometheus -web.console.libraries=/etc/prometheus/console_libraries -web.console.templates=/etc/prometheus/consoles"
+  environment:
+   - constraint:node==${NODE_1}
+  labels:
+   type: infra
+   network: ${NETWORK}
+   service: prometheus
+   
+grafana:
+  hostname: grafana
+  container_name: grafana
+  image: grafana/grafana
+  volumes:
+    - "/var/grafana:/var/lib/grafana"
+  ports:
+    - "3000:3000"
+  net: ${NETWORK}  
+  labels:
+   type: infra
+   network: ${NETWORK}
+   service: dashboard
+   
