@@ -2,7 +2,6 @@ consul-exporter:
   hostname: consul-exporter
   container_name: consul-exporter
   net: ${NETWORK}
-  net: bridge
   image: prom/consul-exporter
   command: -consul.server=${CONSUL_SERVER}
   environment:
