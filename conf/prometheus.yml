@@ -30,3 +30,9 @@ scrape_configs:
     scrape_interval: 5s
     target_groups:
       - targets: ['container-exporter1:9104','container-exporter2:9104']
+
+  - job_name: 'consul'
+    scrape_interval: 5s
+    target_groups:
+      - targets: ['consul-exporter:9107']
+      
