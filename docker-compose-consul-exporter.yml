@@ -4,7 +4,7 @@ consul-exporter:
   net: ${NETWORK}
   net: bridge
   image: prom/consul-exporter
-  command: -consul.server=${CONSUL_URL}
+  command: -consul.server=${CONSUL_SERVER}
   environment:
    - constraint:node==${NODE_2}
   ports:
