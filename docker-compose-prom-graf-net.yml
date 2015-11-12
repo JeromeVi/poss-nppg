@@ -1,3 +1,7 @@
+# If you want to use promdash
+# Need to do the following steps:
+#  1. create /var/prometheus first.
+#  2. run: docker-compose run promdash ./bin/rake db:migrate
 docker-node1:
   hostname: docker-node1
   container_name: docker-node1
@@ -44,6 +48,23 @@ prometheus:
    type: infra
    network: ${NETWORK}
    service: prometheus
+
+promdash:
+  hostname: promdash
+  container_name: promdash
+  image: prom/promdash
+  ports:
+    - "4000:3000"
+  environment:
+    - DATABASE_URL=sqlite3:/var/prometheus/file.sqlite3
+  volumes:
+    - "/var/prometheus:/var/prometheus"
+    - /tmp/prom:/tmp/prom
+  net: ${NETWORK}
+  labels:
+   type: infra
+   network: ${NETWORK}
+   service: dashboard
    
 grafana:
   hostname: grafana

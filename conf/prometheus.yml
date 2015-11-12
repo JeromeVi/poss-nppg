@@ -22,7 +22,7 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'node'
-    scrape_interval: 55s
+    scrape_interval: 5s
     target_groups:
       - targets: ['docker-node1:9100','docker-node2:9100']
  

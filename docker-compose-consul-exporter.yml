@@ -1,0 +1,11 @@
+consul-exporter:
+  hostname: consul-exporter
+  container_name: consul-exporter
+  net: ${NETWORK}
+  net: bridge
+  image: prom/consul-exporter
+  command: -consul.server=${CONSUL_URL}
+  environment:
+   - constraint:node==${NODE_2}
+  ports:
+    - "9107:9107"
