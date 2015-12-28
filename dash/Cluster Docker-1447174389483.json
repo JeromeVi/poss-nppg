@@ -60,12 +60,12 @@
               "calculatedInterval": "10s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "sum by (mode)(irate(node_cpu{job='node-exporter',instance='docker-node1:9100'}[5m])) * 100 / scalar(count(count by (cpu)(node_cpu{job='node-exporter',instance='docker-node1:9100'})))",
+              "expr": "sum by (mode)(irate(node_cpu{job='node',instance='docker-node1:9100'}[5m])) * 100 / scalar(count(count by (cpu)(node_cpu{job='node',instance='docker-node1:9100'})))",
               "interval": "5s",
               "intervalFactor": 2,
               "legendFormat": "{{mode}}",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum%20by%20(mode)(irate(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%7D%5B5m%5D))%20*%20100%20%2F%20scalar(count(count%20by%20(cpu)(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%7D)))%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A20%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D"
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum%20by%20(mode)(irate(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%7D%5B5m%5D))%20*%20100%20%2F%20scalar(count(count%20by%20(cpu)(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%7D)))%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A20%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D"
             }
           ],
           "timeFrom": null,
@@ -129,12 +129,12 @@
               "calculatedInterval": "10s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "sum by (mode)(irate(node_cpu{job='node-exporter',instance='docker-node2:9100'}[5m])) * 100 / scalar(count(count by (cpu)(node_cpu{job='node-exporter',instance='docker-node2:9100'})))",
+              "expr": "sum by (mode)(irate(node_cpu{job='node',instance='docker-node2:9100'}[5m])) * 100 / scalar(count(count by (cpu)(node_cpu{job='node',instance='docker-node2:9100'})))",
               "interval": "5s",
               "intervalFactor": 2,
               "legendFormat": "{{mode}}",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum%20by%20(mode)(irate(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%7D%5B5m%5D))%20*%20100%20%2F%20scalar(count(count%20by%20(cpu)(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%7D)))%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A12%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D"
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum%20by%20(mode)(irate(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%7D%5B5m%5D))%20*%20100%20%2F%20scalar(count(count%20by%20(cpu)(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%7D)))%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A12%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D"
             }
           ],
           "timeFrom": null,
@@ -218,11 +218,11 @@
             {
               "errors": {},
               "datasourceErrors": {},
-              "expr": "sum(rate(node_cpu{job='node-exporter',instance='docker-node1:9100', mode!=\"idle\"}[5m])) by(mode)",
+              "expr": "sum(rate(node_cpu{job='node',instance='docker-node1:9100', mode!=\"idle\"}[5m])) by(mode)",
               "metric": "",
               "intervalFactor": 2,
               "calculatedInterval": "10s",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum(rate(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%2C%20mode!%3D%5C%22idle%5C%22%7D%5B5m%5D))%20by(mode)%22%2C%22range_input%22%3A%22900s%22%2C%22end_input%22%3A%222015-11-10%2013%3A33%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum(rate(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%2C%20mode!%3D%5C%22idle%5C%22%7D%5B5m%5D))%20by(mode)%22%2C%22range_input%22%3A%22900s%22%2C%22end_input%22%3A%222015-11-10%2013%3A33%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D",
               "legendFormat": "{{mode}}",
               "interval": "5s"
             }
@@ -287,11 +287,11 @@
             {
               "errors": {},
               "datasourceErrors": {},
-              "expr": "sum(rate(node_cpu{job='node-exporter',instance='docker-node2:9100', mode!=\"idle\"}[5m])) by(mode)",
+              "expr": "sum(rate(node_cpu{job='node',instance='docker-node2:9100', mode!=\"idle\"}[5m])) by(mode)",
               "metric": "",
               "intervalFactor": 2,
               "calculatedInterval": "10s",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum(rate(node_cpu%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%2C%20mode!%3D%5C%22idle%5C%22%7D%5B5m%5D))%20by(mode)%22%2C%22range_input%22%3A%22900s%22%2C%22end_input%22%3A%222015-11-10%2013%3A34%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22sum(rate(node_cpu%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%2C%20mode!%3D%5C%22idle%5C%22%7D%5B5m%5D))%20by(mode)%22%2C%22range_input%22%3A%22900s%22%2C%22end_input%22%3A%222015-11-10%2013%3A34%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Afalse%2C%22tab%22%3A0%7D%5D",
               "legendFormat": "{{mode}}",
               "interval": "5s"
             }
@@ -353,35 +353,35 @@
               "calculatedInterval": "5s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load1{job='node-exporter',instance='docker-node1:9100'}",
+              "expr": "node_load1{job='node',instance='docker-node1:9100'}",
               "interval": "5s",
               "intervalFactor": 1,
               "legendFormat": "load 1",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load1%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D"
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load1%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D"
             },
             {
               "calculatedInterval": "5s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load5{job='node-exporter',instance='docker-node1:9100'}",
+              "expr": "node_load5{job='node',instance='docker-node1:9100'}",
               "interval": "5s",
               "intervalFactor": 1,
               "legendFormat": "load 5",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load5%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load5%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
               "target": ""
             },
             {
               "calculatedInterval": "10s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load15{job='node-exporter',instance='docker-node1:9100'}",
+              "expr": "node_load15{job='node',instance='docker-node1:9100'}",
               "interval": "5s",
               "intervalFactor": 2,
               "legendFormat": "load 15",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load15%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load15%7Bjob%3D'node'%2Cinstance%3D'docker-node1%3A9100'%7D%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A25%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
               "target": ""
             }
           ],
@@ -446,35 +446,35 @@
               "calculatedInterval": "5s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load1{job='node-exporter',instance='docker-node2:9100'}",
+              "expr": "node_load1{job='node',instance='docker-node2:9100'}",
               "interval": "5s",
               "intervalFactor": 1,
               "legendFormat": "load 1",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load1%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D"
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load1%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D"
             },
             {
               "calculatedInterval": "5s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load5{job='node-exporter',instance='docker-node2:9100'}",
+              "expr": "node_load5{job='node',instance='docker-node2:9100'}",
               "interval": "5s",
               "intervalFactor": 1,
               "legendFormat": "load 5",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load5%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load5%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221601s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
               "target": ""
             },
             {
               "calculatedInterval": "10s",
               "datasourceErrors": {},
               "errors": {},
-              "expr": "node_load15{job='node-exporter',instance='docker-node2:9100'}",
+              "expr": "node_load15{job='node',instance='docker-node2:9100'}",
               "interval": "5s",
               "intervalFactor": 2,
               "legendFormat": "load 15",
               "metric": "",
-              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load15%7Bjob%3D'node-exporter'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
+              "prometheusLink": "http://192.168.59.103:9090/graph#%5B%7B%22expr%22%3A%22node_load15%7Bjob%3D'node'%2Cinstance%3D'docker-node2%3A9100'%7D%22%2C%22range_input%22%3A%2221600s%22%2C%22end_input%22%3A%222015-11-10%2013%3A26%22%2C%22step_input%22%3A%22%22%2C%22stacked%22%3Atrue%2C%22tab%22%3A0%7D%5D",
               "target": ""
             }
           ],
